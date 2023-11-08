@@ -1,7 +1,7 @@
-import { Bird, Question } from './types';
+import { Bird, Question, Score } from './types';
 
 const birds: Bird[] = [
-  { id: 1, name: "sterniczka", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wei%C3%9Fkopfruderente_Oxyura_leucocephala_050324_Ausschnitt.jpg/150px-Wei%C3%9Fkopfruderente_Oxyura_leucocephala_050324_Ausschnitt.jpg" },
+{ id: 1, name: "sterniczka", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wei%C3%9Fkopfruderente_Oxyura_leucocephala_050324_Ausschnitt.jpg/150px-Wei%C3%9Fkopfruderente_Oxyura_leucocephala_050324_Ausschnitt.jpg" },
 { id: 2, name: "łabędź niemy", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cygnus_olor_Adult_Lyngby_Denmark.jpg/150px-Cygnus_olor_Adult_Lyngby_Denmark.jpg" },
 { id: 3, name: "łabędź czarnodzioby", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Cygnus_bewickii_01.jpg/150px-Cygnus_bewickii_01.jpg" },
 { id: 4, name: "łabędź krzykliwy", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Singschwan.jpg/150px-Singschwan.jpg" },
@@ -500,4 +500,21 @@ export function getQuestion(): Question {
     bird: bird,
     answers: answers
   };
+}
+
+export function saveScores(score: Score): void {
+  localStorage.setItem('poznaj_ptaki.highScore', JSON.stringify(score));
+}
+
+export function getScores(): Score {
+  const score = localStorage.getItem('poznaj_ptaki.highScore');
+  if (score) {
+    return JSON.parse(score);
+  }
+
+  return {
+    score: 0,
+    highestScore: 0,
+    previousScore: 0
+  }
 }
