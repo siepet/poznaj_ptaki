@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
-import { Answer } from './components';
+import { Answer, ScoreBoard, Loading } from './components';
 import { Bird, Score } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
 
@@ -16,23 +16,6 @@ const InitBird : Bird = {
   id: 0,
   name: "",
   image: "",
-}
-
-function Loading() {
-  const text = "Wyszukiwanie lornetką ptaka na niebie..."
-  return (
-    <h1 className="text-gray-300 text-4xl mb-10">{text}</h1>
-  )
-}
-
-function ScoreBoard(props: {score: Score}) {
-  return (
-    <div className="w-6/12 mt-10">
-      <p className="text-gray-300 text-xl">Poprawnych odpowiedzi: {props.score.score}</p>
-      <p className="text-gray-300 text-xl">Ostatni wynik: {props.score.previousScore}</p>
-      <p className="text-gray-300 text-xl">Najlepszy wynik: {props.score.highestScore}</p>
-    </div>
-  )
 }
 
 function Game() {
