@@ -23,11 +23,15 @@ function Game() {
   const [bird, setBird] = useState<Bird>(InitBird);
   const [rawAnswers, setRawAnswers] = useState<string[]>([]);
 
-  useEffect(() => {
+  const randomizeQuestion = () : void => {
     const b = getRandomBird();
     const a = getRandomAnswers(b);
     setBird(b);
     setRawAnswers(a);
+  }
+  
+  useEffect(() => {
+    randomizeQuestion();
   }, []);
 
   const handleAnswerClick = (bird: Bird, event: SyntheticEvent) : void => {
@@ -52,10 +56,7 @@ function Game() {
       });
     }
 
-    const b = getRandomBird();
-    const a = getRandomAnswers(b);
-    setBird(b);
-    setRawAnswers(a);
+    randomizeQuestion();
   };
 
   const answers = rawAnswers.map(answer => {
