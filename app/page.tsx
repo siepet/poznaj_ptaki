@@ -3,7 +3,8 @@ import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
 import { Answer } from './components';
-import { getRandomBird, getRandomAnswers, Bird } from './api';
+import { Bird } from './types';
+import { getRandomBird, getRandomAnswers } from './api';
 
 function Loading() {
   const text = "Wyszukiwanie lornetką ptaka na niebie..."

@@ -1,16 +1,4 @@
-// write const named birds in typescript of type array of objects
-
-export type Bird = {
-  id: number,
-  name: string,
-  image: string
-};
-
-
-export type Question = {
-  bird: Bird,
-  answers: string[]
-}
+import { Bird, Question } from './types';
 
 const birds: Bird[] = [
   { id: 1, name: "sterniczka", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wei%C3%9Fkopfruderente_Oxyura_leucocephala_050324_Ausschnitt.jpg/150px-Wei%C3%9Fkopfruderente_Oxyura_leucocephala_050324_Ausschnitt.jpg" },
