@@ -15,7 +15,7 @@ const InitScore : Score = {
 const InitBird : Bird = {
   id: 0,
   name: "",
-  image: "",
+  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Subalpine_Warbler_-_Monfrague_-_Spain_2669_%2819110069408%29.jpg/150px-Subalpine_Warbler_-_Monfrague_-_Spain_2669_%2819110069408%29.jpg",
 }
 
 function Game() {
