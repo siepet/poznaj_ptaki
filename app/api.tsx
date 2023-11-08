@@ -488,8 +488,6 @@ export function getRandomAnswers(bird: Bird): string[] {
   const answers = birds.map(b => b.name).filter(name => name !== bird.name);
   let randomizeArray = [...answers].sort(() => 0.5 - Math.random()).slice(0, 3);
   randomizeArray.push(bird.name);
-  console.log("tutaj:")
-  console.log(randomizeArray);
 
   return randomizeArray;
 }
