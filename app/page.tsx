@@ -45,7 +45,6 @@ function Game() {
       // This is a "lose", score is reset and the game continues
       setScore((prevScore: Score) => {
         return {
-          ...prevScore,
           previousScore: prevScore.score,
           highestScore: prevScore.score > prevScore.highestScore ? prevScore.score : prevScore.highestScore,
           score: 0,
