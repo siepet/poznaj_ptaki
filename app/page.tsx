@@ -34,6 +34,7 @@ function Game() {
     const target = event.target as HTMLElement;
     
     if(target.innerText === bird.name) {
+      // This is a "win", moving to the next bird
       setScore((prevScore: Score) => {
         return {
           ...prevScore,
@@ -41,6 +42,7 @@ function Game() {
         }
       });
     } else {
+      // This is a "lose", score is reset and the game continues
       setScore((prevScore: Score) => {
         return {
           ...prevScore,
