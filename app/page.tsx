@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
-import { Answer, ScoreBoard, Loading } from './components';
+import { Footer, Answer, ScoreBoard, Loading, Header } from './components';
 import { Bird, Score } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
 
@@ -62,7 +62,7 @@ function Game() {
 
   return (
     <>
-    <h1 className="text-gray-300 text-4xl mb-10">Jaki to ptak?</h1>
+    <Header />
     <Image
       className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
       src={bird.image}
@@ -75,6 +75,7 @@ function Game() {
       {answers}
     </div>
     <ScoreBoard score={score} />
+    <Footer />
     </>
   )
 }
@@ -89,8 +90,10 @@ export default function Home() {
   }, [isLoading])
 
   return (
-    <main className="flex flex-col items-center justify-between p-24">
-     { isLoading ? <Loading /> : <Game /> }
-    </main>
+    <>
+      <main className="flex flex-col items-center justify-between p-24">
+      { isLoading ? <Loading /> : <Game /> }
+      </main>
+    </>
   )
 }

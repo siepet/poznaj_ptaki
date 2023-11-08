@@ -9,12 +9,23 @@ export function Answer(props: {answer: string, onClick: (any: any) => void}) {
     </div>
   )
 }
+export function Header() {
+  return (
+  <h1 className="text-gray-300 text-4xl mb-10">Jaki to ptak?</h1>
+  )
+}
 
 export function Loading() {
   const text = "Wyszukiwanie lornetką ptaka na niebie..."
   
   return (
     <h1 className="text-gray-300 text-4xl mb-10">{text}</h1>
+  )
+}
+
+export function Footer() {
+  return (
+    <div className="w-full fixed bottom-2 text-center">marcin siepetowski 2023</div>
   )
 }
 
