@@ -32,28 +32,29 @@ function Game() {
 
   const handleAnswerClick = (bird: Bird, event: SyntheticEvent) : void => {
     const target = event.target as HTMLElement;
-      
-      if(target.innerText === bird.name) {
-        setScore((prevScore: Score) => {
-          return {
-            ...prevScore,
-            score: prevScore.score + 1,
-          }
-        });
-        const b = getRandomBird();
-        const a = getRandomAnswers(b);
-        setBird(b);
-        setRawAnswers(a);
-      } else {
-        setScore((prevScore: Score) => {
-          return {
-            ...prevScore,
-            previousScore: prevScore.score,
-            highestScore: prevScore.score > prevScore.highestScore ? prevScore.score : prevScore.highestScore,
-            score: 0,
-          }
-        });
-      }
+    
+    if(target.innerText === bird.name) {
+      setScore((prevScore: Score) => {
+        return {
+          ...prevScore,
+          score: prevScore.score + 1,
+        }
+      });
+    } else {
+      setScore((prevScore: Score) => {
+        return {
+          ...prevScore,
+          previousScore: prevScore.score,
+          highestScore: prevScore.score > prevScore.highestScore ? prevScore.score : prevScore.highestScore,
+          score: 0,
+        }
+      });
+    }
+
+    const b = getRandomBird();
+    const a = getRandomAnswers(b);
+    setBird(b);
+    setRawAnswers(a);
   };
 
   const answers = rawAnswers.map(answer => {
