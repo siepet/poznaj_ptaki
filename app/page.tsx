@@ -3,20 +3,8 @@ import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
 import { Footer, Answer, ScoreBoard, Loading, Header } from './components';
-import { Bird, Score } from './types';
+import { Bird, Score, InitBird, InitScore } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
-
-const InitScore : Score = {
-    score: 0,
-    highestScore: 0,
-    previousScore: 0,
-}
-
-const InitBird : Bird = {
-  id: 0,
-  name: "",
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Subalpine_Warbler_-_Monfrague_-_Spain_2669_%2819110069408%29.jpg/150px-Subalpine_Warbler_-_Monfrague_-_Spain_2669_%2819110069408%29.jpg",
-}
 
 function Game() {
   const [score, setScore] = useState<Score>(InitScore);
