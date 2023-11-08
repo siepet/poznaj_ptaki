@@ -6,6 +6,18 @@ import { Answer } from './components';
 import { Bird, Score } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
 
+const InitScore : Score = {
+    score: 0,
+    highestScore: 0,
+    previousScore: 0,
+}
+
+const InitBird : Bird = {
+  id: 0,
+  name: "",
+  image: "",
+}
+
 function Loading() {
   const text = "Wyszukiwanie lornetką ptaka na niebie..."
   return (
@@ -24,8 +36,8 @@ function ScoreBoard(props: {score: Score}) {
 }
 
 function Game() {
-  const [score, setScore] = useState<Score>({ score: 0, highestScore: 0, previousScore: 0 });
-  const [bird, setBird] = useState<Bird>({ id: 0, name: "", image: "" });
+  const [score, setScore] = useState<Score>(InitScore);
+  const [bird, setBird] = useState<Bird>(InitBird);
   const [rawAnswers, setRawAnswers] = useState<string[]>([]);
 
   useEffect(() => {
