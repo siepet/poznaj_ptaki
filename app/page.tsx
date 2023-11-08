@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
 import { Answer } from './components';
-import { Bird } from './types';
+import { Bird, Score } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
 
 function Loading() {
@@ -13,8 +13,18 @@ function Loading() {
   )
 }
 
+function ScoreBoard(props: {score: Score}) {
+  return (
+    <div className="w-6/12 mt-10">
+      <p className="text-gray-300 text-xl">Poprawnych odpowiedzi: {props.score.score}</p>
+      <p className="text-gray-300 text-xl">Ostatni wynik: {props.score.previousScore}</p>
+      <p className="text-gray-300 text-xl">Najlepszy wynik: {props.score.highestScore}</p>
+    </div>
+  )
+}
+
 function Game() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState<Score>({ score: 0, highestScore: 0, previousScore: 0 });
   const [bird, setBird] = useState<Bird>({ id: 0, name: "", image: "" });
   const [rawAnswers, setRawAnswers] = useState<string[]>([]);
 
@@ -29,13 +39,25 @@ function Game() {
     const target = event.target as HTMLElement;
       
       if(target.innerText === bird.name) {
-        setScore((prevScore: number) => prevScore + 1);
+        setScore((prevScore: Score) => {
+          return {
+            ...prevScore,
+            score: prevScore.score + 1,
+          }
+        });
         const b = getRandomBird();
         const a = getRandomAnswers(b);
         setBird(b);
         setRawAnswers(a);
       } else {
-        setScore(0);
+        setScore((prevScore: Score) => {
+          return {
+            ...prevScore,
+            previousScore: prevScore.score,
+            highestScore: prevScore.score > prevScore.highestScore ? prevScore.score : prevScore.highestScore,
+            score: 0,
+          }
+        });
       }
   };
 
@@ -57,9 +79,7 @@ function Game() {
     <div className="flex justify-evenly w-6/12 mt-10">
       {answers}
     </div>
-    <div className="flex justify-center w-6/12 mt-10">
-      <p className="text-gray-300 text-xl">Poprawnych odpowiedzi: {score}</p>
-    </div>
+    <ScoreBoard score={score} />
     </>
   )
 }

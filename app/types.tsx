@@ -8,3 +8,9 @@ export type Question = {
   bird: Bird,
   answers: string[]
 }
+
+export type Score = {
+  score: number,
+  highestScore: number;
+  previousScore: number;
+}
