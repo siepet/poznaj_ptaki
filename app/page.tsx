@@ -52,7 +52,7 @@ function Game() {
   });
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-between w-full">
     <Header />
     <Image
       className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
@@ -62,12 +62,12 @@ function Game() {
       height={250}
       priority
     />
-    <div className="flex justify-evenly w-6/12 mt-10">
+    <div className="flex lg:flex-row sm:flex-col justify-evenly w-6/12 mt-10">
       {answers}
     </div>
     <ScoreBoard score={score} />
     <Footer />
-    </>
+    </div>
   )
 }
 
