@@ -53,7 +53,6 @@ function Game() {
 
   return (
     <div className="">
-    <Header />
     <Image
       className=""
       src={bird.image}
@@ -66,8 +65,19 @@ function Game() {
       {answers}
     </div>
     <ScoreBoard score={score} />
-    <Footer />
     </div>
+  )
+}
+
+function Main() {
+  return (
+    <>
+      <Header />
+      <main className="">
+        <Game />
+      </main>
+      <Footer />
+    </>
   )
 }
 
@@ -82,9 +92,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="">
-      { isLoading ? <Loading /> : <Game /> }
-      </main>
+    { isLoading ? <Loading /> : <Main /> }
     </>
   )
 }

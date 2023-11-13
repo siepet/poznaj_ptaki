@@ -11,7 +11,9 @@ export function Answer(props: {answer: string, onClick: (any: any) => void}) {
 }
 export function Header() {
   return (
-  <h1 className="">Jaki to ptak?</h1>
+    <header>
+      <h1 className="">Jaki to ptak?</h1>
+    </header>
   )
 }
 
@@ -25,7 +27,9 @@ export function Loading() {
 
 export function Footer() {
   return (
-    <div className="">marcin siepetowski 2023</div>
+    <footer>
+      marcin siepetowski 2023
+    </footer>
   )
 }
 
