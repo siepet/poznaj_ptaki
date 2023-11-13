@@ -52,17 +52,17 @@ function Game() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-between w-full">
+    <div className="">
     <Header />
     <Image
-      className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+      className=""
       src={bird.image}
       alt="Ptak"
       width={250}
       height={250}
       priority
     />
-    <div className="flex lg:flex-row sm:flex-col justify-evenly w-6/12 mt-10">
+    <div className="">
       {answers}
     </div>
     <ScoreBoard score={score} />
@@ -82,7 +82,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col items-center justify-between p-24">
+      <main className="">
       { isLoading ? <Loading /> : <Game /> }
       </main>
     </>
