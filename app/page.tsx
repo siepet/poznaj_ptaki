@@ -52,7 +52,7 @@ function Game() {
   });
 
   return (
-    <div className="">
+    <main className="">
     <Image
       className=""
       src={bird.image}
@@ -65,7 +65,7 @@ function Game() {
       {answers}
     </div>
     <ScoreBoard score={score} />
-    </div>
+    </main>
   )
 }
 
@@ -73,9 +73,7 @@ function Main() {
   return (
     <>
       <Header />
-      <main className="">
-        <Game />
-      </main>
+      <Game />
       <Footer />
     </>
   )
