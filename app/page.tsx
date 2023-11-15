@@ -52,16 +52,18 @@ function Game() {
   });
 
   return (
-    <main className="">
-    <Image
-      className=""
-      src={bird.image}
-      alt="Ptak"
-      width={250}
-      height={250}
-      priority
-    />
-    <div className="">
+    <main className="mt-8">
+      <div className="max-w-xs max-h-xs m-auto">
+        <Image
+          className="m-auto"
+          src={bird.image}
+          alt="Ptak"
+          width={250}
+          height={250}
+          priority
+        />
+    </div>
+    <div className="mt-8 grid grid-cols-1 grid-rows-4 gap-y-5">
       {answers}
     </div>
     <ScoreBoard score={score} />

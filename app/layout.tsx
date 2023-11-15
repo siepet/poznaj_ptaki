@@ -14,9 +14,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const classNames = inter.className + " " + "bg-slate-900 text-white min-h-screen flex flex-col"
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={classNames}>{children}</body>
     </html>
   )
 }
