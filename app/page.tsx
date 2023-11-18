@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
-import { Footer, Answer, ScoreBoard, Loading, Header } from './components';
+import { Footer, Answer, ScoreBoard, Loading, Header} from './components';
 import { Bird, Score, InitBird, InitScore } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
 
