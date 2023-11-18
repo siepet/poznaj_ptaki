@@ -10,6 +10,7 @@ function Game() {
   const [score, setScore] = useState<Score>(InitScore);
   const [bird, setBird] = useState<Bird>(InitBird);
   const [rawAnswers, setRawAnswers] = useState<string[]>([]);
+  const [invalidAnswer, setInvalidAnswer] = useState("");
 
   const randomizeQuestion = () : void => {
     const b = getRandomBird();
@@ -33,8 +34,10 @@ function Game() {
           score: prevScore.score + 1,
         }
       });
+      randomizeQuestion();
     } else {
       // This is a "lose", score is reset and the game continues
+      setInvalidAnswer(target.innerText);
       setScore((prevScore: Score) => {
         return {
           previousScore: prevScore.score,
@@ -43,12 +46,10 @@ function Game() {
         }
       });
     }
-
-    randomizeQuestion();
   };
 
   const answers = rawAnswers.map(answer => {
-    return <Answer key={answer} answer={answer} onClick={(event: SyntheticEvent) : void => { handleAnswerClick(bird, event)}} />
+    return <Answer key={answer} answer={answer} invalidAnswer={invalidAnswer} onAnimationEnd={() => {setInvalidAnswer("")}} onClick={(event: SyntheticEvent) : void => { handleAnswerClick(bird, event)}} />
   });
 
   return (

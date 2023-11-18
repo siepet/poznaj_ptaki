@@ -2,9 +2,11 @@
 
 import { Score } from './types';
 
-export function Answer(props: {answer: string, onClick: (any: any) => void}) {
+export function Answer(props: {answer: string, invalidAnswer: string, onAnimationEnd: (any: any) => void, onClick: (any: any) => void}) {
+  let animateClassName = props.invalidAnswer === props.answer ? "animate-shake bg-rose-900" : "bg-emerald-900"
+
   return (
-    <div onClick={props.onClick} className="m-auto text-center text-base flex justify-center items-center w-64 h-20 bg-emerald-900 border-solid border-emerald-950 rounded-2xl">
+    <div onClick={props.onClick} onAnimationEnd={props.onAnimationEnd} className={`${animateClassName} m-auto text-center text-base flex justify-center items-center w-64 h-20 border-solid border-emerald-950 rounded-2xl`}>
       <span className="tracking-widest">{props.answer}</span>
     </div>
   )
