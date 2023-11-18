@@ -11,6 +11,7 @@ function Game() {
   const [bird, setBird] = useState<Bird>(InitBird);
   const [rawAnswers, setRawAnswers] = useState<string[]>([]);
   const [invalidAnswer, setInvalidAnswer] = useState("");
+  const [validAnswer, setValidAnswer] = useState("");
 
   const randomizeQuestion = () : void => {
     const b = getRandomBird();
@@ -28,13 +29,19 @@ function Game() {
     
     if(target.innerText === bird.name) {
       // This is a "win", moving to the next bird
+      setValidAnswer(target.innerText)
       setScore((prevScore: Score) => {
         return {
           ...prevScore,
           score: prevScore.score + 1,
         }
       });
-      randomizeQuestion();
+
+      setTimeout(() => {
+        setValidAnswer("");
+        randomizeQuestion();
+      }, 300);
+
     } else {
       // This is a "lose", score is reset and the game continues
       setInvalidAnswer(target.innerText);
@@ -49,7 +56,7 @@ function Game() {
   };
 
   const answers = rawAnswers.map(answer => {
-    return <Answer key={answer} answer={answer} invalidAnswer={invalidAnswer} onAnimationEnd={() => {setInvalidAnswer("")}} onClick={(event: SyntheticEvent) : void => { handleAnswerClick(bird, event)}} />
+    return <Answer key={answer} answer={answer} validAnswer={validAnswer} invalidAnswer={invalidAnswer} onAnimationEnd={() => {setInvalidAnswer(""); setValidAnswer("")}} onClick={(event: SyntheticEvent) : void => { handleAnswerClick(bird, event)}} />
   });
 
   return (
