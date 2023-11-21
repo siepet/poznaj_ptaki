@@ -507,7 +507,7 @@ export function saveScores(score: Score): void {
   localStorage.setItem('poznaj_ptaki.highScore', JSON.stringify(score));
 }
 
-export function getScores(): Score {
+export function loadScores(): Score {
   const score = localStorage.getItem('poznaj_ptaki.highScore');
   if (score) {
     return JSON.parse(score);

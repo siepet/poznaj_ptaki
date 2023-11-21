@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
 import { Answer, ScoreBoard, Layout } from './components';
 import { Bird, Score, InitBird, InitScore } from './types';
-import { getRandomBird, getRandomAnswers } from './api';
+import { getRandomBird, getRandomAnswers, loadScores, saveScores } from './api';
 
-function Game() {
+function Game(props: { score: Score }) {
   const [score, setScore] = useState<Score>(InitScore);
   const [bird, setBird] = useState<Bird>(InitBird);
   const [rawAnswers, setRawAnswers] = useState<string[]>([]);
@@ -21,6 +21,7 @@ function Game() {
   }
   
   useEffect(() => {
+    setScore(props.score);
     randomizeQuestion();
   }, []);
 
@@ -46,11 +47,14 @@ function Game() {
       // This is a "lose", score is reset and the game continues
       setInvalidAnswer(target.innerText);
       setScore((prevScore: Score) => {
-        return {
+        let scores = {
           previousScore: prevScore.score,
           highestScore: prevScore.score > prevScore.highestScore ? prevScore.score : prevScore.highestScore,
           score: 0,
         }
+        
+        saveScores(scores);
+        return scores;
       });
     }
   };
@@ -81,11 +85,13 @@ function Game() {
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const [score, setScore] = useState<Score>(InitScore);
  
   useEffect(() => {
-   if(isLoading) {
+    if(isLoading) {
+      setScore(loadScores())
       setIsLoading(false)
-   }
+    }
   }, [isLoading])
 
   const loadingTitle = "Wyszukiwanie lornetką ptaka na niebie..."
@@ -93,7 +99,7 @@ export default function Home() {
 
   return (
     <Layout title={title}>
-    { isLoading ? <></> : <Game /> }
+    { isLoading ? <></> : <Game score={score} /> }
     </Layout>
   )
 }
