@@ -16,7 +16,7 @@ export default function About() {
           </p>
         </div>
         <div className="mt-4">
-          <h4 className="text-xl">Co w planach?</h4>
+          <h4 className="text-xl mt-1 mb-2">Co w planach?</h4>
           <p>Krótka lista zmian, które planuję w najbliższych miesiącach:</p>
           <ul className="list-disc list-inside">
             <li>zdobycie lepszej jakości zdjęć ptaków</li>
