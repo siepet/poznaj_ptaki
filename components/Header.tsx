@@ -1,8 +1,8 @@
 
-export default function Header() {
+export default function Header(props: {title: string}) {
   return (
     <header className="text-center mt-8">
-      <h1 className="text-2xl">Jaki to ptak?</h1>
+      <h1 className="text-2xl">{props.title}</h1>
     </header>
   )
 }

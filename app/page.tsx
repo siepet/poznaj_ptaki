@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect, SyntheticEvent } from 'react';
-import { Footer, Answer, ScoreBoard, Loading, Header} from './components';
+import { Answer, ScoreBoard, Layout } from './components';
 import { Bird, Score, InitBird, InitScore } from './types';
 import { getRandomBird, getRandomAnswers } from './api';
 
@@ -79,16 +79,6 @@ function Game() {
   )
 }
 
-function Main() {
-  return (
-    <>
-      <Header />
-      <Game />
-      <Footer />
-    </>
-  )
-}
-
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
  
@@ -98,9 +88,12 @@ export default function Home() {
    }
   }, [isLoading])
 
+  const loadingTitle = "Wyszukiwanie lornetką ptaka na niebie..."
+  const title = isLoading ? loadingTitle : "Jaki to ptak?"
+
   return (
-    <>
-    { isLoading ? <Loading /> : <Main /> }
-    </>
+    <Layout title={title}>
+    { isLoading ? <></> : <Game /> }
+    </Layout>
   )
 }
