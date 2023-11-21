@@ -29,6 +29,10 @@ export default function Answer(props: {
     <div
       onClick={props.onClick}
       onAnimationEnd={props.onAnimationEnd}
+      tabIndex={0}
+      onKeyUp={(event) => {
+        event.key === "Enter" ? props.onClick(event) : null;
+      }}
       className={`${animateClassName} m-auto text-center text-base flex justify-center items-center w-64 h-20 md:w-44 lg:w-60 border-solid border-emerald-950 rounded-2xl`}
     >
       <span className="tracking-widest">{props.answer}</span>
