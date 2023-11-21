@@ -60,8 +60,8 @@ function Game() {
   });
 
   return (
-    <main className="mt-8">
-      <div className="max-w-xs max-h-xs m-auto">
+    <main className="mt-8 max-w-xs max-h-xs m-auto md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg md:w-1/2">
+      <div className="m-auto">
         <Image
           className="m-auto"
           src={bird.image}
@@ -71,7 +71,7 @@ function Game() {
           priority
         />
     </div>
-    <div className="mt-8 grid grid-cols-1 grid-rows-4 gap-y-5">
+    <div className="mt-8 grid grid-cols-1 grid-rows-4 gap-y-5 md:grid-cols-2 md:grid-rows-2 md:gap-y-5 md:gap-x-5">
       {answers}
     </div>
     <ScoreBoard score={score} />

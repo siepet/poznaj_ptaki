@@ -12,7 +12,7 @@ export default function Answer(props: {answer: string, validAnswer: string, inva
   let animateClassName = getAnswerClasses(props.answer, props.validAnswer, props.invalidAnswer);
 
   return (
-    <div onClick={props.onClick} onAnimationEnd={props.onAnimationEnd} className={`${animateClassName} m-auto text-center text-base flex justify-center items-center w-64 h-20 border-solid border-emerald-950 rounded-2xl`}>
+    <div onClick={props.onClick} onAnimationEnd={props.onAnimationEnd} className={`${animateClassName} m-auto text-center text-base flex justify-center items-center w-64 h-20 md:w-44 lg:w-60 border-solid border-emerald-950 rounded-2xl`}>
       <span className="tracking-widest">{props.answer}</span>
     </div>
   )
