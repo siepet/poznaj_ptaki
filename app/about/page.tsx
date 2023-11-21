@@ -1,4 +1,4 @@
-import { Layout} from '@/app/components';
+import { Layout } from "@/app/components";
 
 export default function About() {
   return (
@@ -6,13 +6,22 @@ export default function About() {
       <div className="max-w-xs max-h-xs m-auto">
         <div>
           <p>
-            Hej! Witaj na małej, ptasiej zgadywance. Celem gry jest odgadnięcie jak największej liczby ptaków.
+            Hej! Witaj na małej, ptasiej zgadywance. Celem gry jest odgadnięcie
+            jak największej liczby ptaków.
           </p>
           <p className="mt-2">
-            W tym celu należy wybrać jedną z czterech podpowiedzi, która według Ciebie jest poprawna.
+            W tym celu należy wybrać jedną z czterech podpowiedzi, która według
+            Ciebie jest poprawna.
           </p>
           <p className="mt-2">
-            Obecna baza ptaków jest zaczerpnięta ze strony <a className="font-medium underline" href="https://pl.wikipedia.org/wiki/Ptaki_Polski">Ptaki Polski</a> na Wikipedii.
+            Obecna baza ptaków jest zaczerpnięta ze strony{" "}
+            <a
+              className="font-medium underline"
+              href="https://pl.wikipedia.org/wiki/Ptaki_Polski"
+            >
+              Ptaki Polski
+            </a>{" "}
+            na Wikipedii.
           </p>
         </div>
         <div className="mt-4">
@@ -24,8 +33,7 @@ export default function About() {
             <li>???</li>
           </ul>
         </div>
-
       </div>
     </Layout>
-  )
+  );
 }

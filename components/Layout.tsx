@@ -1,11 +1,11 @@
-import { Header, Footer} from '@/app/components'
+import { Header, Footer } from "@/app/components";
 
 export default function Layout({
   children,
-  title
+  title,
 }: {
-  children: React.ReactNode,
-  title: string
+  children: React.ReactNode;
+  title: string;
 }) {
   return (
     <>
@@ -13,5 +13,5 @@ export default function Layout({
       {children}
       <Footer />
     </>
-  )
+  );
 }
