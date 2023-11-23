@@ -1,4 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 Hello! 👋
 
 This is repository for [PoznajPtaki](https://poznajptaki.pl/) web-quizz about birds that could be seen in Poland.
